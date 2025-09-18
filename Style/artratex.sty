@@ -300,7 +300,7 @@
 %-
 %-> Language settings
 %-
-\def\artx@fontdir{./Font/}% extra font location
+\def\artx@fontdir{./.fonts/}% extra font location
 \ifartx@pdftex% <pdflatex> call font packages
     \RequirePackage[utf8]{inputenc}% set input encoding, document must use utf-8 encoding
     \RequirePackage[T1]{fontenc}% set font encoding to enable modern font encoding
@@ -452,21 +452,32 @@
     %- LaTeX distribution
     %- With path: fontspec will treat the given string as font filename and use kpathsea to
     %- search the font filename in path, and extension is optional but recommended in this case
-        \setCJKmainfont{AdobeSongStd-Light}[%
-            Path=\artx@fontdir,
-            Extension=.otf,
-            AutoFakeBold=2.5,
-            ItalicFont=AdobeKaitiStd-Regular,
+        % \setCJKmainfont{AdobeSongStd-Light}[%
+        %     Path=\artx@fontdir,
+        %     Extension=.otf,
+        %     AutoFakeBold=2.5,
+        %     ItalicFont=AdobeKaitiStd-Regular,
+        % ]
+        % \setCJKsansfont{AdobeHeitiStd-Regular}[%
+        %     Path=\artx@fontdir,
+        %     Extension=.otf,
+        %     AutoFakeBold=2.5,
+        % ]%
+        % \setCJKmonofont{AdobeFangsongStd-Regular}[%
+        %     Path=\artx@fontdir,
+        %     Extension=.otf,
+        % ]
+        \xeCJKDeclareSubCJKBlock{SIP}{"20000->"2FFFF}
+        \xeCJKDeclareSubCJKBlock{TIP}{"30000->"3FFFF}
+        \setCJKmainfont{WenJin Mincho Plane 0}[%
+            SIP=WenJin Mincho Plane 1,
+            TIP=WenJin Mincho Plane 2,
         ]
-        \setCJKsansfont{AdobeHeitiStd-Regular}[%
-            Path=\artx@fontdir,
-            Extension=.otf,
-            AutoFakeBold=2.5,
+        \setCJKsansfont{WenYuan Sans SC}[%
+            UprightFont    = *-Regular,
+            BoldFont       = *-Medium,
         ]%
-        \setCJKmonofont{AdobeFangsongStd-Regular}[%
-            Path=\artx@fontdir,
-            Extension=.otf,
-        ]
+        \setCJKmonofont{WenYuan Rounded SC}%
     \fi\fi\fi\fi
 \fi
 %-
@@ -476,7 +487,7 @@
 \def\artxbibtexnum{Biblio/gbt7714-numerical}% bibtex numbers bst
 \def\artxbibtexauy{Biblio/gbt7714-author-year}% bibtex authoryear bst
 \def\artxbibtexalp{alpha}% bibtex alpha bst
-\def\artxbibernum{Biblio/gb7714-2015}% biber numbers bst
+\def\artxbibernum{author-kit/Biblio/gb7714-2015}% biber numbers bst
 \def\artxbiberauy{Biblio/gb7714-2015ay}% biber authoryear bst
 \def\artxbiberalp{alphabetic}% biber alpha bst
 %- Bibtex processor + natbib package
@@ -660,7 +671,7 @@
 \else% <pdflatex> or <lualatex>
     \DeclareGraphicsExtensions{.pdf,.png,.jpg}%
 \fi
-\graphicspath{{Img/}}% search path for figures
+% \graphicspath{{figures/}}% search path for figures
 %-
 %-> Layout, space, and style
 %-

@@ -90,7 +90,7 @@
 %---------------------------------------------------------------------------%
 \AtEndOfPackage{% class cfg loaded after package to make preamble commands take effect
     \makeatletter
-    \InputIfFileExists{Style/ucasproposal.cfg}{}{}
+    \InputIfFileExists{author-kit/Style/ucasproposal.cfg}{}{}
     \makeatother
 }
 %---------------------------------------------------------------------------%
@@ -319,7 +319,7 @@
 %- section
 \ctexset {
     section = {
-        format = \centering\zihao{4}\sffamily,
+        format = \zihao{4}\sffamily\bfseries,
         number = {\chinese{section}},
         aftername = \quad,
         beforeskip = {24pt},
@@ -329,7 +329,7 @@
 %- subsection
 \ctexset {
     subsection = {
-        format = \sffamily,
+        format = \sffamily\bfseries,
         numberformat = \rmfamily,
         aftername = \quad,
         beforeskip = {12pt},
@@ -364,6 +364,10 @@
 \def\@pnumwidth{2em}% width of a box in which the page number is put
 \def\@tocrmarg{2em}% right margin for multiple line entries, \@tocrmarg ≥ \@pnumwidth
 \def\@sectionvspace{1ex}% vertical space between section titles
+
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hfill\sffamily\bfseries\zihao{3}}% title font
+\renewcommand{\cftaftertoctitle}{\hfill}
 
 %- redefine dottedtocline from classes.dtx and latex.ltx
 \renewcommand*{\@dottedtocline}[5]{% [<level>,<indent>,<numwidth>,<title>,<page>]
