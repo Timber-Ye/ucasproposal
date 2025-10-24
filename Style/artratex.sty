@@ -473,22 +473,36 @@
             SIP=WenJin Mincho Plane 1,
             TIP=WenJin Mincho Plane 2,
         ]
-        \setCJKsansfont{WenYuan Sans SC}[%
+        % \setCJKmainfont{Source Han Serif SC}[
+        %     UprightFont    = *-Regular,
+        %     BoldFont       = *-SemiBold,
+        % ]
+        % \setCJKsansfont{WenYuan Sans SC}[%
+        %     UprightFont    = *-Regular,
+        %     BoldFont       = *-Medium,
+        % ]%
+        % \setCJKmonofont{WenYuan Rounded SC}%
+        \setCJKsansfont{Source Han Sans SC}[
             UprightFont    = *-Regular,
             BoldFont       = *-Medium,
         ]%
-        \setCJKmonofont{WenYuan Rounded SC}%
+        \setCJKmonofont{Source Han Sans SC}[
+            UprightFont    = *-Light,
+            BoldFont       = *-Regular,
+        ]
     \fi\fi\fi\fi
 \fi
 %-
 %-> Bibliography processor and package
 %-
-\def\artxbibref{Biblio/ref.bib}% bibliography reference file
-\def\artxbibtexnum{Biblio/gbt7714-numerical}% bibtex numbers bst
-\def\artxbibtexauy{Biblio/gbt7714-author-year}% bibtex authoryear bst
+\def\artxbibref{src/reference.bib}% bibliography reference file
+% \def\artxbibtexnum{author-kit/Biblio/gbt7714-numerical}% bibtex numbers bst
+% \def\artxbibtexnum{author-kit/Biblio/ieeenat_fullname}% bibtex numbers bst
+\def\artxbibtexnum{author-kit/Biblio/custom-num}% bibtex numbers bst
+\def\artxbibtexauy{author-kit/Biblio/gbt7714-author-year}% bibtex authoryear bst
 \def\artxbibtexalp{alpha}% bibtex alpha bst
 \def\artxbibernum{author-kit/Biblio/gb7714-2015}% biber numbers bst
-\def\artxbiberauy{Biblio/gb7714-2015ay}% biber authoryear bst
+\def\artxbiberauy{author-kit/Biblio/gb7714-2015ay}% biber authoryear bst
 \def\artxbiberalp{alphabetic}% biber alpha bst
 %- Bibtex processor + natbib package
 \ifartx@bibtex%
@@ -558,7 +572,7 @@
 %-> Figure environment support
 %-
 \RequirePackage{graphicx}% packages for including graphics
-\RequirePackage[format=plain,hangindent=2.0em,font={small,bf},skip=8pt,labelsep=space]{caption}% options: [margin=10pt,labelfont=bf]
+\RequirePackage[format=plain,hangindent=2.0em,font={small},labelfont={bf},skip=8pt,labelsep=space]{caption}% options: [margin=10pt,labelfont=bf]
 \RequirePackage{subcaption}% package for subfigures
 \RequirePackage[list=off]{bicaption}% package for binary captions
 \DeclareCaptionOption{bi-first}[]{}% 1st language
@@ -643,8 +657,8 @@
         pdffitwindow=false,% window fit to page when opened
         pdfstartview={FitH},% fits the width of the page to the window
         %pdfnewwindow=true,% links in new window
-        %backref=true,% do bibliographical back references
-        %pagebackref=true,% backreference by page number
+        backref=true,% do bibliographical back references
+        pagebackref=true,% backreference by page number
         colorlinks=true,% false: boxed links; true: colored links
         linkcolor=black,% color of internal links
         citecolor=blue,% color of links to bibliography
@@ -680,7 +694,7 @@
 \fi
 %\linespread{1.5}% 1.5 for "one and a half" line spacing, and 2.0 for "double" line spacing
 %\setlength{\parskip}{0.5ex plus 0.25ex minus 0.25ex}% skip space a paragraph
-\setcounter{tocdepth}{2}% depth for the table of contents
+\setcounter{tocdepth}{3}% depth for the table of contents
 \setcounter{secnumdepth}{3}% depth for section numbering, default is 2(subsub)
 %- Set equation, figure, table numbering
 %\numberwithin{equation}{section}% set enumeration level
